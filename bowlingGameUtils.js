@@ -1,5 +1,17 @@
 
-const score = (Rolls) => {
+
+const getBestScore = (Games) => {
+    let bestScore = -Infinity;
+    Games.forEach((game) => {
+        let thisGameScore = getScore(game);
+        if(thisGameScore > bestScore) {
+            bestScore = thisGameScore;
+        }
+    });
+    return bestScore;
+}
+
+const getScore = (Rolls) => {
     let frames = [];
     let i =0;
     for(i=0;i<=16;i+=2) {
