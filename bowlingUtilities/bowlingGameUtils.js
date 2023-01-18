@@ -49,7 +49,4 @@ const getBestScore = (Games) => {
     return bestScore;
 }
 
-
-
-
 module.exports = {getBestScore,getScore};
