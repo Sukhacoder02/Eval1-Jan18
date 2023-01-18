@@ -1,17 +1,14 @@
-
-
-const getBestScore = (Games) => {
-    let bestScore = -Infinity;
-    Games.forEach((game) => {
-        let thisGameScore = getScore(game);
-        if(thisGameScore > bestScore) {
-            bestScore = thisGameScore;
-        }
-    });
-    return bestScore;
-}
-
 const getScore = (Rolls) => {
+
+    let length = Rolls.length;
+    if(!Array.isArray(Rolls)) {
+        throw new Error('Input is not an array');
+    }
+    if(length !== 20 && length !== 21){
+        throw new Error('Not a 10-frame game');
+    }
+
+    
     let frames = [];
     let i =0;
     for(i=0;i<=16;i+=2) {
@@ -38,3 +35,26 @@ const getScore = (Rolls) => {
     return score;
 }
 
+const getBestScore = (Games) => {
+    if(!Array.isArray(Games)) {
+        throw new Error('Input is not a 2d array');
+    }
+    let bestScore = 0;
+    Games.forEach((game) => {
+        let thisGameScore = getScore(game);
+        if(thisGameScore > bestScore) {
+            bestScore = thisGameScore;
+        }
+    });
+    return bestScore;
+}
+
+const games = [
+    [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10],
+    [6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+console.log(getBestScore(games))
+
+
+module.exports = {getBestScore,getScore};
