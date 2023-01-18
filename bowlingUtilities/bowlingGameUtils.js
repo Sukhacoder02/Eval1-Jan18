@@ -49,12 +49,7 @@ const getBestScore = (Games) => {
     return bestScore;
 }
 
-const games = [
-    [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10],
-    [6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-console.log(getBestScore(games))
+
 
 
 module.exports = {getBestScore,getScore};
